@@ -1,11 +1,18 @@
+// common
+
+header,
+.experience {
+    padding-inline: 60px;
+}
+
+// Header
+
 header {
     height: 100svh;
-    background-color: #393646;
     display: flex;
     align-items: center;
-    padding: 0 60px;
     gap: 5vw;
-
+    background-color: #393646;
     img {
         border-radius: 35%;
         width: 40%;
@@ -15,8 +22,49 @@ header {
 .general-info {
     h1 {
         margin-bottom: 40px;
+        text-transform: uppercase;
     }
+
     h2 {
         margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+}
+
+// Experience section
+
+.experience {
+    background-color: #4F4557;
+    padding-block: 60px;
+    
+}
+
+.experience-item {
+    margin-block: 50px 80px;
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    grid-template-rows: none;
+
+    &-details {
+        &-title {
+            margin-block: 10px;
+        }
+    }
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+}
+
+.project {
+    &:not(:last-of-type){
+        margin-bottom: 30px;
+    }
+    
+
+    h5 {
+        margin-bottom: 5px;
     }
 }
