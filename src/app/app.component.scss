@@ -3,6 +3,7 @@
 header,
 .experience {
     padding-inline: 60px;
+    overflow: hidden;
 }
 
 // Header
@@ -13,6 +14,7 @@ header {
     align-items: center;
     gap: 5vw;
     background-color: #393646;
+
     img {
         border-radius: 35%;
         width: 40%;
@@ -36,7 +38,7 @@ header {
 .experience {
     background-color: #4F4557;
     padding-block: 60px;
-    
+
 }
 
 .experience-item {
@@ -56,15 +58,133 @@ header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: none;
+    grid-gap: 3vw;
 }
 
 .project {
-    &:not(:last-of-type){
-        margin-bottom: 30px;
-    }
-    
-
     h5 {
         margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 1670px) {
+    .projects {
+        grid-gap: 3vw 7vw;
+    }
+}
+
+@media (max-width: 1350px) {
+    .projects {
+        grid-template-columns: 1fr;
+        grid-gap: 4vw;
+    }
+}
+
+@media (max-width: 1070px) {
+    .experience-item {
+        grid-template-columns: 400px 1fr;
+        grid-gap: 2vw;
+    }
+}
+
+@media (max-width: 825px) {
+
+    header,
+    .experience {
+        padding-inline: 30px;
+    }
+
+    .experience-item {
+        grid-template-columns: 240px 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .experience {
+        padding-block: 30px;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        border-bottom: 1px solid #6D5D6E;
+        padding-bottom: 30px;
+        grid-gap: 5vw;
+        margin-block: 30px;
+    }
+
+    .experience-item-details-title {
+        display: flex;
+        gap: 10vw;
+        margin-block: 5px;
+    }
+
+    .projects {
+        h5 {
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .experience-item-details-title {
+        gap: 0;
+        margin-block: 10px;
+        flex-direction: column;
+    }
+}
+
+@media (orientation: 'portrait') {
+    header {
+        flex-direction: column;
+        justify-content: center;
+
+        img {
+            width: 50%;
+        }
+    }
+}
+
+@media (orientation: 'portrait') and (max-width: 970px) {
+    header {
+        .general-info h1 {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+    }
+}
+
+@media (orientation: 'portrait') and (max-width: 820px) {
+
+    header img {
+        width: 60vw;
+    }
+
+    header h1 {
+        font-size: 50px;
+
+    }
+
+    header {
+        gap: 7vh;
+        ;
+    }
+}
+
+@media (orientation: 'portrait') and (max-width: 540px) {
+    header {
+        img {
+            width: 70vw;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
     }
 }

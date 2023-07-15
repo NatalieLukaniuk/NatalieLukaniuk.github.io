@@ -34,4 +34,70 @@ h5 {
 
 p {
     font-size: 18px;
+    line-height: 1.5;
+}
+
+.semi-bold {
+    font-weight: 600;
+}
+
+@media (max-width: 1475px){
+    h1 {
+        font-size: 80px;
+    }
+    
+    h2 {
+        font-size: 30px;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4 {
+        font-size: 14px;
+    }
+    
+    h5 {
+        font-size: 15px;
+    }
+    
+    p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1070px){
+    h1 {
+        font-size: 60px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    h3 {
+        font-size: 25px;
+    }
+
+}
+
+@media (max-width: 825px) {
+    h4 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    p {
+        font-size: 12px;
+    }
+    h4 {
+        font-size: 12px;
+        text-transform: unset;
+    }
+    
+    h5 {
+        font-size: 12px;
+    }
 }
