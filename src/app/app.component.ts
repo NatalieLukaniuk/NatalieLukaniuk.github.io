@@ -27,6 +27,12 @@ export class AppComponent {
           stack: 'Angular, Angular Material, RxJs, AmCharts'
         },
         {
+          name: 'Alchemy',
+          client: 'Australia',
+          team: 'Ukraine/Republic of South Africa, 7 people',
+          stack: 'Angular, Angular Material, RxJs'
+        },
+        {
           name: 'Orchestration Hub',
           client: 'USA',
           team: 'Ukraine, 26 people',
