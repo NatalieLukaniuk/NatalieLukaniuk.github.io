@@ -1,15 +1,27 @@
 // common
 
 header,
-.experience {
+section {
     padding-inline: 60px;
     overflow: hidden;
+}
+
+section {
+    padding-block: 60px;
+
+    &:nth-of-type(1) {
+        background-color: #4F4557;
+    }
+
+    &:nth-of-type(2) {
+        background-color: #6D5D6E;
+    }
 }
 
 // Header
 
 header {
-    height: 100svh;
+    height: 100vh;
     display: flex;
     align-items: center;
     gap: 5vw;
@@ -34,12 +46,6 @@ header {
 }
 
 // Experience section
-
-.experience {
-    background-color: #4F4557;
-    padding-block: 60px;
-
-}
 
 .experience-item {
     margin-block: 50px 80px;
@@ -67,6 +73,36 @@ header {
     }
 }
 
+
+// Contacts section
+
+.buttons-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: none;
+    padding: 15vh 3vw;
+    box-sizing: border-box;
+}
+
+.contacts-btn {
+    height: 7vw;
+
+    mat-icon {
+        height: 7vw;
+        width: 7vw;
+        transition: all 80ms ease-in-out;
+    }
+
+    &:hover {
+        mat-icon {
+            height: 7.5vw;
+            width: 7.5vw;
+            filter: drop-shadow(5px 5px 5px rgb(94, 81, 81));
+        }
+    }
+}
+
 @media (max-width: 1670px) {
     .projects {
         grid-gap: 3vw 7vw;
@@ -85,22 +121,51 @@ header {
         grid-template-columns: 400px 1fr;
         grid-gap: 2vw;
     }
+
+    .contacts-btn {
+        height: 9vw;
+
+        mat-icon {
+            height: 9vw;
+            width: 9vw;
+        }
+
+        &:hover {
+            mat-icon {
+                height: 9.5vw;
+                width: 9.5vw;
+            }
+        }
+    }
 }
 
 @media (max-width: 825px) {
 
     header,
-    .experience {
+    section {
         padding-inline: 30px;
     }
 
     .experience-item {
         grid-template-columns: 240px 1fr;
     }
+
+    .buttons-wrapper {
+        padding: 10vh 0;
+    }
+
+    .contacts-btn {
+        height: 12vw;
+
+        mat-icon {
+            height: 12vw;
+            width: 12vw;
+        }
+    }
 }
 
 @media (max-width: 600px) {
-    .experience {
+    section {
         padding-block: 30px;
     }
 
@@ -122,6 +187,10 @@ header {
         h5 {
             text-transform: uppercase;
         }
+    }
+
+    .buttons-wrapper {
+        padding: 7vh 0;
     }
 }
 

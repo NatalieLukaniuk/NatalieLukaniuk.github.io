@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -89,13 +91,13 @@ export class AppComponent {
       icon: 'telegram-ion.svg'
     },
     {
-      name: 'viber',
-      link: 'viber://chat?number=380950500317',
-      icon: 'viber.svg'
+      name: 'email',
+      link: 'mailto:natalie.lukaniuk@gmail.com',
+      icon: 'email.svg'
     },
     {
       name: 'linkedin',
-      link: 'https://www.linkedin.com/in/natalie-lukaniuk-4158ba31/',
+      link: 'https://www.linkedin.com/in/natalie-klid-lukaniuk-4158ba31/',
       icon: 'linkedin.svg'
     },
     {
@@ -103,6 +105,37 @@ export class AppComponent {
       link: 'https://github.com/NatalieLukaniuk',
       icon: 'github.svg'
     },
-  ]
+  ];
 
+  constructor(private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer,) {
+    this.addIcons();
+  }
+
+  goSocialMedia(target: string): void {
+    window.open(target, '_blank');
+  }
+
+  addIcons() {
+    this.iconRegistry.addSvgIcon(
+      'telegram',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/telegram-ion.svg')
+    );
+    this.iconRegistry.addSvgIcon(
+      'viber',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/viber.svg')
+    );
+    this.iconRegistry.addSvgIcon(
+      'linkedin',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/linkedin.svg')
+    );
+    this.iconRegistry.addSvgIcon(
+      'github',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/github.svg')
+    );
+    this.iconRegistry.addSvgIcon(
+      'email',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/email.svg')
+    );
+  }
 }

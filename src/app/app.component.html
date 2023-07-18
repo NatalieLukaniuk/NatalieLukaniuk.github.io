@@ -1,10 +1,10 @@
 <header>
   <img src="../assets/images/my_pic.jpg">
-  <section class="general-info">
+  <div class="general-info">
     <h1>Natalie Klid</h1>
     <h2>Frontend Developer</h2>
     <p>Stack: Angular, Ionic</p>
-  </section>
+  </div>
 </header>
 
 
@@ -27,4 +27,13 @@
       </div>
     </div>
   </div>
+</section>
+
+<section class="contacts">
+  <h2>Contacts</h2>
+  <div class="buttons-wrapper">
+    <button class="contacts-btn" *ngFor="let contact of contacts" mat-button
+      (click)="goSocialMedia(contact.link)"><mat-icon [svgIcon]="contact.name"></mat-icon></button>
+  </div>
+
 </section>
