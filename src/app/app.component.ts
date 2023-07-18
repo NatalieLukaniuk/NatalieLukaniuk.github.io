@@ -8,7 +8,7 @@ import { MatIconRegistry } from '@angular/material/icon';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  experience = [
+  experienceItems = [
     {
       company: 'Deloitte',
       titles: [
@@ -107,6 +107,17 @@ export class AppComponent {
     },
   ];
 
+  anchors = [
+    {
+      name: 'Experience',
+      href: 'experience'
+    },
+    {
+      name: 'Contacts',
+      href: 'contacts'
+    },
+  ]
+
   constructor(private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,) {
     this.addIcons();
@@ -137,5 +148,26 @@ export class AppComponent {
       'email',
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/email.svg')
     );
+    this.iconRegistry.addSvgIcon(
+      'home',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/home.svg')
+    );
+  }
+
+  scrollTo(elId: string) {
+    if (elId === 'home') {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    } else {
+      const element = document.getElementById(elId);
+      debugger
+      window.scrollTo({
+        top: element?.offsetTop,
+        behavior: "smooth"
+      })
+    }
+
   }
 }

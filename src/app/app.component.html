@@ -7,10 +7,16 @@
   </div>
 </header>
 
+<nav class="navigation">
+  <ul>
+    <li><mat-icon svgIcon="home" (click)="scrollTo('home')"></mat-icon></li>
+    <li *ngFor="let anchor of anchors"><button mat-button (click)="scrollTo(anchor.href)"><span class="btn-text">{{anchor.name}}</span></button></li>
+  </ul>
+</nav>
 
-<section class="experience">
+<section id="experience">
   <h2>Experience</h2>
-  <div *ngFor="let element of experience" class="experience-item">
+  <div *ngFor="let element of experienceItems" class="experience-item">
     <div class="experience-item-details">
       <h3>{{element.company}}</h3>
       <div *ngFor="let title of element.titles" class="experience-item-details-title">
@@ -29,7 +35,7 @@
   </div>
 </section>
 
-<section class="contacts">
+<section id="contacts">
   <h2>Contacts</h2>
   <div class="buttons-wrapper">
     <button class="contacts-btn" *ngFor="let contact of contacts" mat-button

@@ -7,7 +7,7 @@ section {
 }
 
 section {
-    padding-block: 60px;
+    padding-block: 120px;
 
     &:nth-of-type(1) {
         background-color: #4F4557;
@@ -17,6 +17,65 @@ section {
         background-color: #6D5D6E;
     }
 }
+
+// navigation
+
+.navigation {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: rgba(57, 54, 70, 0.9);
+
+    ul {
+        display: grid;
+        grid-template-columns: 60px repeat(2, 220px);
+        padding: 40px 60px 15px;
+        list-style: none;
+
+        li:first-child {
+            align-self: end;
+        }
+
+        mat-icon {
+            transition: all 100ms ease-in-out;
+            fill: #a9a498;
+            cursor: pointer;
+
+            &:hover {
+                fill: var(--text-color);
+            }
+        }
+
+        button {
+            font-size: 30px;
+            text-decoration: none;
+            font-weight: 600;
+
+            .btn-text,
+            mat-icon {
+                transition: all 100ms ease-in-out;
+                color: #a9a498;
+            }
+
+            &:hover {
+
+                .btn-text,
+                mat-icon {
+                    color: var(--text-color);
+                }
+            }
+        }
+
+        mat-icon {
+            height: 24px;
+            width: 24px;
+            padding-bottom: 3px;
+        }
+    }
+
+}
+
+// TODO responsiveness of the nav 
 
 // Header
 
@@ -107,6 +166,21 @@ header {
     .projects {
         grid-gap: 3vw 7vw;
     }
+
+    .navigation ul {
+        grid-template-columns: 50px repeat(2, 155px);
+
+        button {
+            font-size: 20px;
+        }
+
+        mat-icon {
+            height: 19px;
+            width: 19px;
+            padding-bottom: 5px;
+        }
+    }
+
 }
 
 @media (max-width: 1350px) {
@@ -137,6 +211,10 @@ header {
             }
         }
     }
+
+    .navigation ul {
+        padding: 20px 40px 10px;
+    }
 }
 
 @media (max-width: 825px) {
@@ -161,12 +239,12 @@ header {
             height: 12vw;
             width: 12vw;
         }
-    }
+    }    
 }
 
 @media (max-width: 600px) {
     section {
-        padding-block: 30px;
+        padding-block: 65px;
     }
 
     .experience-item {
@@ -192,6 +270,21 @@ header {
     .buttons-wrapper {
         padding: 7vh 0;
     }
+
+    .navigation ul {
+        grid-template-columns: 35px repeat(2, 120px);
+        padding: 10px 30px 5px;
+
+        button {
+            font-size: 16px;
+        }
+
+        mat-icon {
+            height: 14px;
+            width: 14px;
+            padding-bottom: 7px;    
+        }
+    }
 }
 
 @media (max-width: 450px) {
@@ -202,7 +295,32 @@ header {
     }
 }
 
-@media (orientation: 'portrait') {
+@media (max-width: 896px) and (orientation: landscape){
+    header img {
+        max-height: 70vh;
+        width: auto;
+    }
+
+    section {
+        padding-block: 70px;
+    }
+    .navigation ul {
+        grid-template-columns: 35px repeat(2, 120px);
+        padding: 10px 30px 0;
+
+        button {
+            font-size: 16px;
+        }
+
+        mat-icon {
+            height: 14px;
+            width: 14px;
+            padding-bottom: 7px;    
+        }
+    }
+}
+
+@media (orientation: portrait) {
     header {
         flex-direction: column;
         justify-content: center;
@@ -213,7 +331,7 @@ header {
     }
 }
 
-@media (orientation: 'portrait') and (max-width: 970px) {
+@media (orientation: portrait) and (max-width: 970px) {
     header {
         .general-info h1 {
             margin-bottom: 20px;
@@ -225,7 +343,7 @@ header {
     }
 }
 
-@media (orientation: 'portrait') and (max-width: 820px) {
+@media (orientation: portrait) and (max-width: 820px) {
 
     header img {
         width: 60vw;
@@ -241,7 +359,7 @@ header {
     }
 }
 
-@media (orientation: 'portrait') and (max-width: 540px) {
+@media (orientation: portrait) and (max-width: 540px) {
     header {
         img {
             width: 70vw;
