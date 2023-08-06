@@ -1,7 +1,8 @@
 <nav class="navigation">
   <ul>
-    <li><mat-icon svgIcon="home" (click)="scrollTo('home')"></mat-icon></li>
-    <li *ngFor="let anchor of anchors"><button mat-button (click)="scrollTo(anchor.href)"><span class="btn-text">{{anchor.name}}</span></button></li>
+    <li><mat-icon svgIcon="home" (click)="goAnchor('home')"></mat-icon></li>
+    <li *ngFor="let anchor of anchors"><button mat-button (click)="goAnchor(anchor.href)"><span
+          class="btn-text">{{anchor.name}}</span></button></li>
     <li><button mat-button (click)="go('playground-pizza')"><span class="btn-text">Playground</span></button></li>
   </ul>
 </nav>

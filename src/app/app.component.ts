@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
 
   anchors = [
     {
@@ -20,14 +19,17 @@ export class AppComponent {
       name: 'Contacts',
       href: 'contacts'
     },
-  ]
+  ];
+
+  isMainPage = true;
 
   constructor(private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer, private router: Router) {
     this.addIcons();
+    this.subscribeNavigation()
   }
 
-  
+
   addIcons() {
     this.iconRegistry.addSvgIcon(
       'telegram',
@@ -55,6 +57,30 @@ export class AppComponent {
     );
   }
 
+  subscribeNavigation() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isMainPage = event.url.includes('main')
+      }
+    })
+  }
+
+  goAnchor(elId: string) {
+    if (this.isMainPage) {
+      this.scrollTo(elId);
+    } else {
+      this.router.navigate(['main']);
+      const waitForNavigationEnd = this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          setTimeout(() => {
+            this.scrollTo(elId);
+            waitForNavigationEnd.unsubscribe();
+          }, 100)
+        }
+      })
+    }
+  }
+
   scrollTo(elId: string) {
     if (elId === 'home') {
       window.scrollTo({
@@ -63,7 +89,6 @@ export class AppComponent {
       })
     } else {
       const element = document.getElementById(elId);
-      debugger
       window.scrollTo({
         top: element?.offsetTop,
         behavior: "smooth"
