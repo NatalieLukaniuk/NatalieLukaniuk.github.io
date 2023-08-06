@@ -1,0 +1,38 @@
+<header>
+    <img src="../assets/images/my_pic.jpg">
+    <div class="general-info">
+        <h1>Natalie Klid</h1>
+        <h2>Frontend Developer</h2>
+        <p>Stack: Angular, Ionic</p>
+    </div>
+</header>
+
+<section id="experience">
+    <h2>Experience</h2>
+    <div *ngFor="let element of experienceItems" class="experience-item">
+        <div class="experience-item-details">
+            <h3>{{element.company}}</h3>
+            <div *ngFor="let title of element.titles" class="experience-item-details-title">
+                <h4>{{title.position}}</h4>
+                <h5>{{title.time}}</h5>
+            </div>
+        </div>
+        <div class="projects">
+            <div class="project" *ngFor="let project of element.projects">
+                <h5>Project name: {{project.name}}</h5>
+                <p><span class="semi-bold">Client:</span> {{project.client}}</p>
+                <p><span class="semi-bold">Team:</span> {{project.team}}</p>
+                <p><span class="semi-bold">Tech:</span> {{project.stack}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacts">
+    <h2>Contacts</h2>
+    <div class="buttons-wrapper">
+        <button class="contacts-btn" *ngFor="let contact of contacts" mat-button
+            (click)="goSocialMedia(contact.link)"><mat-icon [svgIcon]="contact.name"></mat-icon></button>
+    </div>
+
+</section>

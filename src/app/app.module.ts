@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from "@angular/common/http";
+import { PizzaPageComponent } from './components/pizza-page/pizza-page.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PizzaPageComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

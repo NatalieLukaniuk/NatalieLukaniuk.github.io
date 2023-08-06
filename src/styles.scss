@@ -41,6 +41,12 @@ p {
     font-weight: 600;
 }
 
+header,
+section {
+    padding-inline: 60px;
+    overflow: hidden;
+}
+
 @media (max-width: 1475px){
     h1 {
         font-size: 80px;
